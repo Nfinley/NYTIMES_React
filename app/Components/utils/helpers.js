@@ -2,17 +2,17 @@
 import axios from "axios";
 
 // Geocoder API
-const geocodeAPI = "35e5548c618555b1a43eb4759d26b260";
+const nytimesAPI = "89b6e5013f424f6db1eb2a5402d56688";
 
 // Helper Functions (in this case the only one is runQuery)
 const helpers = {
 
-  runQuery: (location) => {
+  runQuery: (searchParam, begin, end) => {
 
-    console.log(location);
+    console.log(searchParam, begin, end);
 
     // Figure out the geolocation
-    const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
+    let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + nytimesAPI + "&q=" + searchParam + "&sort=newest";
 
     return axios.get(queryURL).then((response) => {
 

@@ -1,8 +1,10 @@
 import React from "react";
 
 // Import sub-components
-import Form from "./children/Form";
+
+import Search from "./children/Search";
 import Results from "./children/Results";
+import Saved from "./children/Saved";
 
 // Helper Function
 import helpers from "./utils/helpers";
@@ -15,7 +17,7 @@ class Main extends React.Component {
 
     this.state = {
       searchTerm: "",
-      results: []
+      // results: [{title:"", abstract:""}]
     };
 
     this.setTerm = this.setTerm.bind(this);
@@ -55,19 +57,21 @@ class Main extends React.Component {
             </p>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-12">
 
-            <Form setTerm={this.setTerm} />
+            <Search setTerm={this.setTerm} />
 
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-12">
 
             <Results address={this.state.results} />
 
           </div>
           {/*This is where the saved child will be inserted*/}
-
+          <div className="col-md-12">
+           <Saved />
+          </div>
         </div>
 
       </div>

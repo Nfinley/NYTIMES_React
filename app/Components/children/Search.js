@@ -5,7 +5,9 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      term: ""
+      term: "",
+      startYear: "",
+      endYear: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -13,7 +15,7 @@ class Form extends React.Component {
   }
 
   handleChange(event) {
-    var newState = {};
+    let newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
   }
@@ -32,14 +34,14 @@ class Form extends React.Component {
 
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">Query</h3>
+          <h3 className="panel-title text-center">Article Search</h3>
         </div>
         <div className="panel-body text-center">
 
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <h4 className="">
-                <strong>Location</strong>
+                <strong>Topic</strong>
               </h4>
 
               {/*
@@ -54,6 +56,28 @@ class Form extends React.Component {
                 value={this.state.term}
                 onChange={this.handleChange}
                 required
+              />
+              <h4 className="">
+                <strong>Start Year</strong>
+              </h4>
+              <input
+                  type="text"
+                  className="form-control text-center"
+                  id="term"
+                  value={this.state.startYear}
+                  onChange={this.handleChange}
+
+              />
+              <h4 className="">
+                <strong>End Year</strong>
+              </h4>
+              <input
+                  type="text"
+                  className="form-control text-center"
+                  id="term"
+                  value={this.state.endYear}
+                  onChange={this.handleChange}
+
               />
               <br />
 
