@@ -1,10 +1,10 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
 import axios from "axios";
 
-// Geocoder API
+// NY Times API
 const nytimesAPI = "89b6e5013f424f6db1eb2a5402d56688";
 
-// Helper Functions (in this case the only one is runQuery)
+// Helper Functions
 const helpers = {
 
   runQuery: (searchParam, begin, end) => {
@@ -16,12 +16,26 @@ const helpers = {
 
     return axios.get(queryURL).then((response) => {
 
-      console.log(response);
-      return response.data.results[0].formatted;
+
+      let queryData = response.data.response.docs;
+      console.log("These are the results of the query: " +  queryData);
+      // return response.data.results[0].formatted;
+      return queryData;
+
     });
 
   }
+
+// TODO Add in a get articles function from database to render on saved page
+
+
+// TODO a `save` articles would happen from the results section and add to database and then call get articles
+
+
+// Todo Add a delete articles
+
+
 };
 
-// We export the helpers function (which contains getGithubInfo)
+
 export default helpers;
