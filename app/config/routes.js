@@ -1,33 +1,25 @@
+'use strict';
 // Inclue the React library
-var React = require('react');
+import React from 'react';
 
 // Include the Router
-var Router = require('react-router');
-var Route = Router.Route;
-
-//  Include the IndexRoute (catch-all route)
-var IndexRoute	= Router.IndexRoute;
+import {Router, Route, IndexRoute, hashHistory} from "react-router";
 
 // Reference the high-level components
-var Main = require('../components/Main');
-var Info = require('../components/Info'); 
-var Chat = require('../components/Chat'); 
+import Main from '../components/Main';
+
 
 
 // Export the Routes
 module.exports = (
 
 	/*High level component is the Main component*/
-	<Route path='/' component={Main}>
+	<Router history = {hashHistory}>
 
 		{/* If user selects Info or Chat show the appropriate component*/}
-		<Route path='info' component={Info} />
-		<Route path='chat' component={Chat} />
-
-		{/*If user selects any other path... we get the Info Route*/}
-		<IndexRoute component={Info} />
-
-	</Route>
+		<Route path='/' component={Main}>
+		</Route>
+	</Router>
 
 
 );

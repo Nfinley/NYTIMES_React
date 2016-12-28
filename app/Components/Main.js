@@ -121,6 +121,7 @@ export default class Main extends React.Component {
             url: data.url
 
         });
+        console.log("InSetStateMain");
     }
 
     //updates the deleteID

@@ -36,6 +36,7 @@ const helpers = {
     console.log("title  - " + article.title);
     const queryString = "/api/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
     return axios.post(queryString).then((response)=> {
+      // console.log(response);
       return response.data;
     });
 
@@ -46,7 +47,7 @@ const helpers = {
         const queryURL = "/api/saved?_id="+article;
 
         return axios.delete(queryURL).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
 
             return response.data;
         });

@@ -11,10 +11,12 @@
   "dependencies": {
     "axios": "^0.12.0",
     "bluebird": "^3.4.7",
+    "darwin": "0.0.5",
     "geocoder": "^0.2.2",
     "mongoose": "^4.7.5",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-router": "^3.0.0",
     "request": "^2.72.0",
     "weather-js": "^1.0.2",
     "webpack-dev-server": "^1.16.2"
