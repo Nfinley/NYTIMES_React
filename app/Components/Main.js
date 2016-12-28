@@ -133,6 +133,7 @@ export default class Main extends React.Component {
 
     //get all of the saved articles on load
     componentWillMount(){
+        console.log("Mounted");
         helpers.queryDB().then((data) => {
             this.setState({
                 savedArticles: data

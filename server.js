@@ -5,11 +5,13 @@
 const express = require('express'),
     path = require('path'),
     logger = require('morgan'),
+    Articles = require('./models/Articles.js'),
     bodyParser = require('body-parser'),
     Promise = require("bluebird"),
     mongoose = require("mongoose"),
     Routes = require('./routes/routes.js'),
     app = express();
+
 
 
 // const request = require("request");

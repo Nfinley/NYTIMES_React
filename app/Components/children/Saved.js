@@ -32,11 +32,9 @@ class Saved extends React.Component {
                                            defaultValue={data._id} ref={(_id) => this._id = _id}/>
                                     <h2>{data.title}</h2>
                                     <p>{data.abstract}</p>
-                                    <p>{data.url}</p>
-                                    <p>
+                                    <p><button className="btn btn-default"><a href={data.url}> Read More </a></button>
                                         <button type="submit" className="btn btn-default" id="delete">Delete Article
-                                        </button>
-                                    </p>
+                                        </button></p>
                                 </form>
                             </div>
                         }, this)

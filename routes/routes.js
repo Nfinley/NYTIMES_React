@@ -1,8 +1,8 @@
 'use strict';
 
 const express = require('express'),
-    newsController = require('../controllers/newsController.js'),
-    indexController = require('../controllers/indexController.js'),
+    newsController = require('../controllers/newsController'),
+    indexController = require('../controllers/indexController'),
     router = express.Router();
 
 

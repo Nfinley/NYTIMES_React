@@ -27,15 +27,17 @@ const helpers = {
   },
 
   queryDB: () => {
-    return axios.get("/api/saved").then((response)=> {
+    const queryUrl = "/api/saved";
+    return axios.get(queryUrl).then((response)=> {
       return response.data;
     });
   },
 
   saveArticles: (article) => {
     console.log("title  - " + article.title);
-    const queryString = "/api/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
-    return axios.post(queryString).then((response)=> {
+
+    const queryURL = "/api/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
+    return axios.post(queryURL).then((response)=> {
       // console.log(response);
       return response.data;
     });
