@@ -15,7 +15,8 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "request": "^2.72.0",
-    "weather-js": "^1.0.2"
+    "weather-js": "^1.0.2",
+    "webpack-dev-server": "^1.16.2"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",
@@ -24,5 +25,8 @@
     "babel-preset-react": "^6.3.13",
     "json-loader": "^0.5.4",
     "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --content-base src --inline --hot"
   }
 }

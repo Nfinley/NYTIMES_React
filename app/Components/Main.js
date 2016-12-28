@@ -13,7 +13,7 @@ import helpers from "./utils/helpers";
 
 
 
-class Main extends React.Component {
+export default class Main extends React.Component {
 
     constructor(props) {
 
@@ -29,17 +29,20 @@ class Main extends React.Component {
 
             title: "",
             abstract: "",
-            url: ""
+            url: "",
 
-            //    TODO add saved articles array
+            //for the saved articles that will go into database
+            savedArticles: [{_id:"", title:"", abstract:"", url:""}],
+
+            //the ID used to delete articles
+            deleteID: ""
+
         };
 
-        this.save = {};
+        this.setSearch = this.setSearch.bind(this);
+        this.setSaveData = this.setSaveData.bind(this);
+        this.setDelete = this.setDelete.bind(this);
 
-        this.setAllTerms = this.setAllTerms.bind(this);
-        //  will need to also bind the delete and saved data like so:
-        //    this.setSave = this.setSave.bind(this);
-        //    this.setDelete = this.setDelete(this);
     }
 
 
@@ -74,20 +77,65 @@ class Main extends React.Component {
                         }
 
                     })
-                    this.setState(results: paramArray);
-                    console.log("The paramArray: " + paramArray);
+                    //saves the search results to the new array
+                    this.setState({results: paramArray});
+                    console.log(this.state.results);
                 }
             });
         }
+        //This looks to see if articles need to be saved to the database
+        else if (prevState.title !== this.state.title) {
+            helpers.saveArticles(this.state).then((data) => {
+                this.setState({
+                    savedArticles: data
+                });
+            });
+        }
+
+    //    check on status of deleted articles
+        if(prevState.deleteID !== this.state.deleteID){
+            helpers.deleteArticles(this.state).then((data)=>{
+               this.setState({
+                   savedArticles: data
+               });
+            });
+
+        }
     }
 
-    setAllTerms(data) {
+    setSearch(data) {
         this.setState({
             searchTerm: data.searchTerm,
             endYear: data.endYear,
             startYear: data.startYear,
             articleNum: data.articleNum
 
+        });
+    }
+
+    //updates the state of the saved data
+    setSaveData(data){
+        this.setState({
+            title: data.title,
+            abstract: data.abstract,
+            url: data.url
+
+        });
+    }
+
+    //updates the deleteID
+    setDelete(data){
+        this.setState({
+           deleteID: data
+        });
+    }
+
+    //get all of the saved articles on load
+    componentWillMount(){
+        helpers.queryDB().then((data) => {
+            this.setState({
+                savedArticles: data
+            });
         });
     }
 
@@ -106,18 +154,18 @@ class Main extends React.Component {
 
                     <div className="col-md-12">
 
-                        <Search setAllTerms={this.setAllTerms}/>
+                        <Search setSearch={this.setSearch}/>
 
                     </div>
 
                     <div className="col-md-12">
 
-                        <Results results={this.state.results}/>
+                        <Results results={this.state.results} setSaveData={this.setSaveData}/>
 
                     </div>
                     {/*This is where the saved child will be inserted*/}
                     <div className="col-md-12">
-                        <Saved />
+                        <Saved results ={this.state.savedArticles} setDelete={this.setDelete} />
                     </div>
                 </div>
 
@@ -127,4 +175,4 @@ class Main extends React.Component {
 }
 
 // Export the component back for use in other files
-export default Main;
+// export default Main;

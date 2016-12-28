@@ -25,7 +25,7 @@ class Search extends React.Component {
     event.preventDefault();
     console.log("CLICK");
     console.log(this.state);
-    this.props.setAllTerms(this.state);
+    this.props.setSearch(this.state);
     this.setState({searchTerm: "" });
     this.setState({startYear: "" });
     this.setState({endYear: "" });

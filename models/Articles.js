@@ -14,21 +14,26 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
-    // link is a required string
+    // This is the date
     date: {
         type: Date,
         default: Date.now()
 
     },
+    //url is a required piece
     url: {
         type: String,
         required: true
+    },
+    abstract: {
+        type: String
+
     }
 
 });
 
 // Create the Article model with the ArticleSchema
-const Articles = mongoose.model("Articles", NewsSchema);
+const Articles = mongoose.model("Articles", ArticleSchema);
 
 // Export the model
 module.exports = Articles;

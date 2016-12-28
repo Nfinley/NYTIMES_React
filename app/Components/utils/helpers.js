@@ -24,16 +24,33 @@ const helpers = {
 
     });
 
-  }
+  },
 
-// TODO Add in a get articles function from database to render on saved page
+  queryDB: () => {
+    return axios.get("/api/saved").then((response)=> {
+      return response.data;
+    });
+  },
+
+  saveArticles: (article) => {
+    console.log("title  - " + article.title);
+    const queryString = "/api/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
+    return axios.post(queryString).then((response)=> {
+      return response.data;
+    });
+
+  },
 
 
-// TODO a `save` articles would happen from the results section and add to database and then call get articles
+    deleteArticles: (article)=> {
+        const queryURL = "/api/saved?_id="+article;
 
+        return axios.delete(queryURL).then((response) => {
+            console.log(response.data);
 
-// Todo Add a delete articles
-
+            return response.data;
+        });
+    }
 
 };
 
