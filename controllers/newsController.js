@@ -1,7 +1,7 @@
 'use strict';
-import Articles from ('../models/Articles');
 
 
+const Articles = require("../models/Articles");
 
 
 module.exports = {

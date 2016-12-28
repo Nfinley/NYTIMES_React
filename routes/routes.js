@@ -2,7 +2,7 @@
 
 const express = require('express'),
     newsController = require('../controllers/newsController.js'),
-    indexController = require('../contorllers/indexController.js'),
+    indexController = require('../controllers/indexController.js'),
     router = express.Router();
 
 

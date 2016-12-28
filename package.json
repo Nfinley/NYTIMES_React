@@ -1,17 +1,18 @@
 {
-  "name": "ny times article search",
+  "name": "nytimesearch",
   "version": "1.0.0",
   "description": "",
   "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w"
+    "dev": "webpack-dev-server --content-base src --inline --hot"
   },
   "author": "Nigel Finley",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.12.0",
+    "bluebird": "^3.4.7",
     "geocoder": "^0.2.2",
+    "mongoose": "^4.7.5",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "request": "^2.72.0",
@@ -25,8 +26,5 @@
     "babel-preset-react": "^6.3.13",
     "json-loader": "^0.5.4",
     "webpack": "^1.13.1"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --content-base src --inline --hot"
   }
 }
