@@ -24,16 +24,12 @@ export default class Main extends React.Component {
             startYear: "",
             endYear: "",
             articleNum: "5",
-
             results: [{title: "", abstract: "", url: ""}],
-
             title: "",
             abstract: "",
             url: "",
-
             //for the saved articles that will go into database
             savedArticles: [{_id:"", title:"", abstract:"", url:""}],
-
             //the ID used to delete articles
             deleteID: ""
 
@@ -129,6 +125,7 @@ export default class Main extends React.Component {
         this.setState({
            deleteID: data
         });
+        console.log("deleteId: "+ this.deleteID);
     }
 
     //get all of the saved articles on load

@@ -8,10 +8,23 @@ import React from "react";
 
 
 //create the react component
-class Saved extends React.Component {
+export default class Saved extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            _id: ""
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit (e) {
+        e.preventDefault();
+        this.state._id = e.target._id.value;
+        this.props.setDelete(this.state._id);
+        this.setState({_id: ""});
+        console.log(this.state._id);
     }
 
     render() {
@@ -52,4 +65,3 @@ class Saved extends React.Component {
 
 }
 
-export default Saved;

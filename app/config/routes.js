@@ -1,5 +1,5 @@
 'use strict';
-// Inclue the React library
+// Include the React library
 import React from 'react';
 
 // Include the Router
@@ -15,10 +15,9 @@ module.exports = (
 
 	/*High level component is the Main component*/
 	<Router history = {hashHistory}>
-
-		{/* If user selects Info or Chat show the appropriate component*/}
 		<Route path='/' component={Main}>
 		</Route>
+
 	</Router>
 
 

@@ -50,8 +50,18 @@ let controllers = {
     },
 
     deleteArticles: (req, res) => {
-        Articles.findByIdAndRemove(req.query._id).exec(function (err, doc){
 
+        // Articles.update({"_id": req.query._id}, {$unset: {note: "$oid"}}, function (error, response) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         res.send(response);
+        //         console.log(response);
+        //     }
+        // });
+
+        Articles.findByIdAndRemove(req.query._id).exec(function (err, doc){
+            console.log(req.query);
             //Return all saved articles minus the deleted article
             Articles.find({}).exec(function (error, doc){
                 if(error){
@@ -62,6 +72,7 @@ let controllers = {
             });
         });
     }
+
 
 }
 

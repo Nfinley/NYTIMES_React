@@ -27,7 +27,7 @@ const helpers = {
   },
 
   queryDB: () => {
-    const queryUrl = "/api/saved";
+    const queryUrl = "/saved";
     return axios.get(queryUrl).then((response)=> {
       return response.data;
     });
@@ -36,7 +36,7 @@ const helpers = {
   saveArticles: (article) => {
     console.log("title  - " + article.title);
 
-    const queryURL = "/api/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
+    const queryURL = "/saved?title="+article.title+"&abstract="+article.abstract+"&url="+article.url;
     return axios.post(queryURL).then((response)=> {
       // console.log(response);
       return response.data;
@@ -45,11 +45,11 @@ const helpers = {
   },
 
 
-    deleteArticles: (article)=> {
-        const queryURL = "/api/saved?_id="+article;
+    deleteArticles: (id)=> {
+        const queryURL = "/saved?_id="+id;
 
         return axios.delete(queryURL).then((response) => {
-            // console.log(response.data);
+            console.log("The Delete response data: " + response.data);
 
             return response.data;
         });
