@@ -2,7 +2,7 @@
   "name": "nytimesearch",
   "version": "1.0.0",
   "description": "",
-  "main": "public/index.html",
+  "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot"
   },
